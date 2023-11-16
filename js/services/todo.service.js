@@ -51,7 +51,7 @@ function _createTodos() {
     gTodos = loadFromStorage('todosDB')
     if(gTodos && gTodos.length) return
 
-	gTodos = [_createTodo('Do this'), _createTodo('Do that'), _createTodo('Try here')]
+	gTodos = [_createTodo('Do thismmmmmmmmmmmmmmmmmmmmmmm mmmmmmmmmmmmmmmm mmmmmmmmmmmmmmm'), _createTodo('Do that'), _createTodo('Try here')]
     _saveTodos()
 }
 

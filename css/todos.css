@@ -34,10 +34,12 @@ header {
 
 li {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     padding: 4px;
     cursor: pointer;
+    min-height: fit-content;
 }
 
 li:nth-child(odd) {
@@ -55,4 +57,18 @@ footer {
 
 .done {
     text-decoration: line-through;
+}
+
+.todo {
+    width: 60vw;
+    overflow: hidden
+}
+
+.createdAt {
+}
+
+.importance {
+}
+
+.xBtn {
 }
