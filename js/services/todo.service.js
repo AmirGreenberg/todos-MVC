@@ -6,41 +6,41 @@ var gFilterBy = 'All'
 _createTodos()
 
 function getTodos() {
-	if (gFilterBy === 'All') return gTodos
+    if (gFilterBy === 'All') return gTodos
 
-	const isDone = gFilterBy === 'Done' ? true : false
-	return gTodos.filter(todo => todo.isDone === isDone)
+    const isDone = gFilterBy === 'Done' ? true : false
+    return gTodos.filter((todo) => todo.isDone === isDone)
 }
 
 function getTotalCount() {
-	return gTodos.length
+    return gTodos.length
 }
 
 function getActiveCount() {
-	return gTodos.filter(todo => !todo.isDone).length
+    return gTodos.filter((todo) => !todo.isDone).length
 }
 
 function setFilterBy(filterBy) {
-	gFilterBy = filterBy
+    gFilterBy = filterBy
 }
 
-function addTodo(txt) {
-	const todo = _createTodo(txt)
-	gTodos.unshift(todo)
+function addTodo(txt, priority) {
+    const todo = _createTodo(txt, priority)
+    gTodos.unshift(todo)
 
     _saveTodos()
 }
 
 function removeTodo(todoId) {
-	const idx = gTodos.findIndex(todo => todo.id === todoId)
-	gTodos.splice(idx, 1)
+    const idx = gTodos.findIndex((todo) => todo.id === todoId)
+    gTodos.splice(idx, 1)
 
     _saveTodos()
 }
 
 function toggleTodo(todoId) {
-	const todo = gTodos.find(todo => todo.id === todoId)
-	todo.isDone = !todo.isDone
+    const todo = gTodos.find((todo) => todo.id === todoId)
+    todo.isDone = !todo.isDone
 
     _saveTodos()
 }
@@ -49,19 +49,23 @@ function toggleTodo(todoId) {
 
 function _createTodos() {
     gTodos = loadFromStorage('todosDB')
-    if(gTodos && gTodos.length) return
+    if (gTodos && gTodos.length) return
 
-	gTodos = [_createTodo('Do this'), _createTodo('Do that'), _createTodo('Try here')]
+    gTodos = [
+        _createTodo('Do this', getRandomInt(1, 4)),
+        _createTodo('Do that', getRandomInt(1, 4)),
+        _createTodo('Try here', getRandomInt(1, 4)),
+    ]
     _saveTodos()
 }
 
-function _createTodo(txt) {
-	return {
+function _createTodo(txt, priority) {
+    return {
         id: makeId(),
         txt,
         isDone: false,
         createdAt: getDateString(),
-		importance: getRandomInt(1,3),
+        priority,
     }
 }
 
