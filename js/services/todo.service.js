@@ -57,10 +57,12 @@ function _createTodos() {
 
 function _createTodo(txt) {
 	return {
-		id: makeId(),
-		txt,
-		isDone: false,
-	}
+        id: makeId(),
+        txt,
+        isDone: false,
+        createdAt: getDateString(),
+		importance: getRandomInt(1,3),
+    }
 }
 
 function _saveTodos() {

@@ -11,9 +11,11 @@ function renderTodos() {
             (todo) => `
         <li onclick="onToggleTodo('${todo.id}')">
             <span class="todo ${todo.isDone ? 'done' : ''}">${todo.txt}</span>
-            <span class="createdAt">1</span>
+            <span class="createdAt">${todo.createdAt}</span>
             <span class="importance">2</span>
-            <button class="xBtn" onclick="onRemoveTodo(event, '${todo.id}')">x</button>
+            <button class="xBtn" onclick="onRemoveTodo(event, '${
+                todo.id
+            }')">x</button>
         </li>
     `
         )
