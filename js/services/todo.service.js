@@ -42,7 +42,7 @@ function addTodo(txt, priority) {
 }
 
 function removeTodo(todoId) {
-    if (!confirm) return
+    if (!confirm('Do you confirm?')) return
     else {
         const idx = gTodos.findIndex((todo) => todo.id === todoId)
         gTodos.splice(idx, 1)
