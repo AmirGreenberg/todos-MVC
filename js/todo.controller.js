@@ -40,8 +40,7 @@ function onAddTodo(ev) {
     const elInputPriority = document.querySelector('.inputPriority')
     if (!elInputPriority.value) return
 
-
-    addTodo(elInputTxt.value, +(elInputPriority.value))
+    addTodo(elInputTxt.value, +elInputPriority.value)
     elInputTxt.value = ''
     elInputPriority.value = ''
 
