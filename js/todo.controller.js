@@ -23,9 +23,11 @@ function renderTodos() {
 
     elTodoList.innerHTML = strHtml
 
+    const elMsgEmpty = document.querySelector('.msg')
     const elTotalCount = document.querySelector('.total-count')
     const elActiveCount = document.querySelector('.active-count')
 
+    elMsgEmpty.innerText = getEmptyMsg()
     elTotalCount.innerText = getTotalCount()
     elActiveCount.innerText = getActiveCount()
 }

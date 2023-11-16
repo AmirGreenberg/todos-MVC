@@ -1,6 +1,7 @@
 'use strict'
 
 var gTodos
+var gShownTodo
 var gFilterBy = 'All'
 var gSortBy = 'Priority'
 
@@ -19,6 +20,12 @@ function getActiveCount() {
     return gTodos.filter((todo) => !todo.isDone).length
 }
 
+function getEmptyMsg() {
+    if (!gTodos.length) return "No To-Do's!"
+    else if (!gShownTodo.length) return `No ${gFilterBy} To-Do's`
+    else return null
+}
+
 function setFilterBy(filterBy) {
     gFilterBy = filterBy
 }
@@ -35,10 +42,13 @@ function addTodo(txt, priority) {
 }
 
 function removeTodo(todoId) {
-    const idx = gTodos.findIndex((todo) => todo.id === todoId)
-    gTodos.splice(idx, 1)
+    if (!confirm) return
+    else {
+        const idx = gTodos.findIndex((todo) => todo.id === todoId)
+        gTodos.splice(idx, 1)
 
-    _saveTodos()
+        _saveTodos()
+    }
 }
 
 function toggleTodo(todoId) {
@@ -84,10 +94,11 @@ function _filterTodos() {
 }
 
 function _sortTodos(list) {
-    if (gSortBy === 'Priority') gTodos = sortTodosByPriority(list)
-    else if (gSortBy === 'Date') gTodos = sortTodosByDate(list)
-    else gTodos = sortTodosByName(list)
+    if (gSortBy === 'Priority') gShownTodo = sortTodosByPriority(list)
+    else if (gSortBy === 'Date') gShownTodo = sortTodosByDate(list)
+    else gShownTodo = sortTodosByName(list)
     console.log('gTodos: ', gTodos)
+    console.log('gShownTodo: ', gShownTodo)
 
-    return gTodos
+    return gShownTodo
 }

@@ -70,14 +70,23 @@ footer {
 
 .priority {
     margin-right: 5vw;
-    
 }
 
 .inputPriority {
     width: 30vw;
 }
 
-.topic  {
+.topic {
     font-weight: bold;
     color: red;
+}
+
+.msg {
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: green;
+    font-size: x-large;
 }

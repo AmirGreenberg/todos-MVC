@@ -18,14 +18,15 @@ function getRandomInt(min, max) {
 }
 
 function getDateString() {
+    var timeStr = new Date().toString().split(' ')[4]
+
     var date = new Date()
     var dateStr = ''
 
     dateStr += date.getDate() + '/'
     dateStr += date.getMonth() + 1 + '/'
     dateStr += date.getFullYear() + ' Time: '
-    dateStr += date.getHours() + ':'
-    dateStr += date.getMinutes()
+    dateStr += timeStr
 
     return dateStr
 }
