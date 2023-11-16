@@ -10,12 +10,8 @@ function renderTodos() {
         .map(
             (todo) => `
         <li onclick="onToggleTodo('${todo.id}')">
-            <span class="todo ${todo.isDone ? 'done' : ''}">${todo.txt}</span>
-            <span class="createdAt">${todo.createdAt}</span>
-            <span class="priority">${todo.priority}</span>
-            <button class="xBtn" onclick="onRemoveTodo(event, '${
-                todo.id
-            }')">x</button>
+            <span class="${ todo.isDone ? 'done' : '' }">${todo.txt}</span>
+            <button onclick="onRemoveTodo(event, '${todo.id}')">x</button>
         </li>
     `
         )
@@ -35,15 +31,12 @@ function renderTodos() {
 function onAddTodo(ev) {
     ev.preventDefault()
 
-    const elInputTxt = document.querySelector('.inputTxt')
-    if (!elInputTxt.value) return
-    const elInputPriority = document.querySelector('.inputPriority')
-    if (!elInputPriority.value) return
+    const elInput = document.querySelector('input')
+    if(!elInput.value) return
 
-    addTodo(elInputTxt.value, +elInputPriority.value)
-    elInputTxt.value = ''
-    elInputPriority.value = ''
-
+    addTodo(elInput.value)
+    elInput.value = ''
+    
     renderTodos()
 }
 

@@ -64,11 +64,7 @@ function _createTodos() {
     gTodos = loadFromStorage('todosDB')
     if (gTodos && gTodos.length) return
 
-    gTodos = [
-        _createTodo('Do this', getRandomInt(1, 4)),
-        _createTodo('Do that', getRandomInt(1, 4)),
-        _createTodo('Try here', getRandomInt(1, 4)),
-    ]
+	gTodos = [_createTodo('Do this'), _createTodo('Do that'), _createTodo('Try here')]
     _saveTodos()
 }
 
