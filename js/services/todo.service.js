@@ -2,14 +2,13 @@
 
 var gTodos
 var gFilterBy = 'All'
+var gSortBy = 'Priority'
 
 _createTodos()
 
 function getTodos() {
-    if (gFilterBy === 'All') return gTodos
-
-    const isDone = gFilterBy === 'Done' ? true : false
-    return gTodos.filter((todo) => todo.isDone === isDone)
+    const filterdTodos = _filterTodos()
+    return _sortTodos(filterdTodos)
 }
 
 function getTotalCount() {
@@ -22,6 +21,10 @@ function getActiveCount() {
 
 function setFilterBy(filterBy) {
     gFilterBy = filterBy
+}
+
+function setSortBy(sortBy) {
+    gSortBy = sortBy
 }
 
 function addTodo(txt, priority) {
@@ -71,4 +74,20 @@ function _createTodo(txt, priority) {
 
 function _saveTodos() {
     saveToStorage('todosDB', gTodos)
+}
+
+function _filterTodos() {
+    if (gFilterBy === 'All') return gTodos
+
+    const isDone = gFilterBy === 'Done' ? true : false
+    return gTodos.filter((todo) => todo.isDone === isDone)
+}
+
+function _sortTodos(list) {
+    if (gSortBy === 'Priority') gTodos = sortTodosByPriority(list)
+    else if (gSortBy === 'Date') gTodos = sortTodosByDate(list)
+    else gTodos = sortTodosByName(list)
+    console.log('gTodos: ', gTodos)
+
+    return gTodos
 }

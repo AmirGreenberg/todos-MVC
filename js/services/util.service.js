@@ -29,3 +29,18 @@ function getDateString() {
 
     return dateStr
 }
+
+function sortTodosByPriority(list) {
+    list.sort((t1, t2) => t2.priority - t1.priority)
+    return list
+}
+
+function sortTodosByName(list) {
+    list.sort((t1, t2) => t1.txt.localeCompare(t2.txt))
+    return list
+}
+
+function sortTodosByDate(list) {
+    list.sort((t1, t2) => t2.createdAt.localeCompare(t1.createdAt))
+    return list
+}

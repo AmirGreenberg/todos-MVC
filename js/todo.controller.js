@@ -39,7 +39,7 @@ function onAddTodo(ev) {
     if (!elInputPriority.value) return
 
 
-    addTodo(elInputTxt.value, elInputPriority.value)
+    addTodo(elInputTxt.value, +(elInputPriority.value))
     elInputTxt.value = ''
     elInputPriority.value = ''
 
@@ -48,6 +48,11 @@ function onAddTodo(ev) {
 
 function onSetFilterBy(elSelect) {
     setFilterBy(elSelect.value)
+    renderTodos()
+}
+
+function onSetSortBy(elSelect) {
+    setSortBy(elSelect.value)
     renderTodos()
 }
 
