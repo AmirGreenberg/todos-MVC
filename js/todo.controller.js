@@ -12,7 +12,7 @@ function renderTodos() {
         <li onclick="onToggleTodo('${todo.id}')">
             <span class="todo ${todo.isDone ? 'done' : ''}">${todo.txt}</span>
             <span class="createdAt">${todo.createdAt}</span>
-            <span class="importance">${todo.priority}</span>
+            <span class="priority">${todo.priority}</span>
             <button class="xBtn" onclick="onRemoveTodo(event, '${
                 todo.id
             }')">x</button>

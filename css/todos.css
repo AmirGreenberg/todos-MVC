@@ -61,18 +61,26 @@ footer {
 
 .todo {
     width: 50vw;
-    overflow: hidden
+    overflow: hidden;
 }
 
 .createdAt {
+    margin-right: 10vw;
 }
 
-.importance {
+.priority {
+    margin-right: 5vw;
+    
 }
 
 .xBtn {
 }
 
-.inputPriority{
-width: 30vw;
+.inputPriority {
+    width: 30vw;
+}
+
+.topic  {
+    font-weight: bold;
+    color: red;
 }

@@ -21,7 +21,6 @@ function getDateString() {
     var date = new Date()
     var dateStr = ''
 
-    dateStr += 'Date: '
     dateStr += date.getDate() + '/'
     dateStr += date.getMonth() + 1 + '/'
     dateStr += date.getFullYear() + ' Time: '
